@@ -10,15 +10,16 @@ Title: Nebula traveller
 import React, { useEffect } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 
-export function Nebula(props) {
+export function Nebula({ hovered, ...props }) {
   const group = React.useRef()
   const { nodes, materials, animations } = useGLTF('/models/Nebula/Nebula.gltf')
   const { actions } = useAnimations(animations, group)
 
   useEffect(() => {
-    actions['MorphBake'].reset().fadeIn(0.5).play();
+    actions['MorphBake'].reset().fadeIn(0.5).play()
+    actions['MorphBake'].timeScale = hovered ? 10 : 1
     return () => actions['MorphBake'].reset().fadeOut(0.5)
-  }, [])
+  }, [hovered])
 
   return (
     <group ref={group} {...props} dispose={null}>

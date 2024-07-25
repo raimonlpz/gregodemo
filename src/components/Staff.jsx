@@ -10,15 +10,16 @@ Title: "Staff pick"
 import React, { useEffect } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 
-export function Staff(props) {
+export function Staff({ hovered, ...props}) {
   const group = React.useRef()
   const { nodes, materials, animations } = useGLTF('/models/Staff/Staff.gltf')
   const { actions } = useAnimations(animations, group)
 
   useEffect(() => {
     actions['Animation'].reset().fadeIn(0.5).play();
+    actions['Animation'].timeScale = hovered ? 3 : 1
     return () => actions['Animation'].reset().fadeOut(0.5)
-  }, [])
+  }, [hovered])
 
 
   return (

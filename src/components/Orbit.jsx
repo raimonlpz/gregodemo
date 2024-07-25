@@ -10,15 +10,18 @@ Title: Water Orb
 import React, { useEffect } from 'react'
 import { useGLTF, useAnimations, Environment } from '@react-three/drei'
 
-export function Orbit(props) {
+export function Orbit({ hovered, ...props }) {
   const group = React.useRef()
   const { nodes, materials, animations } = useGLTF('/models/Orbit/Orbit.gltf')
   const { actions } = useAnimations(animations, group)
 
   useEffect(() => {
     actions['RootAction'].reset().fadeIn(0.5).play();
-    return () => actions['RootAction'].reset().fadeOut(0.5)
-  }, [])
+    actions['RootAction'].timeScale = hovered ? 4 : 1
+    return () => {
+      actions['RootAction'].reset().fadeOut(0.5)
+    }
+  }, [hovered])
 
   return (
     <group ref={group} {...props} dispose={null}>
