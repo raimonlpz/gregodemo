@@ -20,12 +20,9 @@ function Screen() {
   }
 
   const Emitter = forwardRef((props, forwardRef) => {
-    const [video] = useState(() => Object.assign(document.createElement('video'), { src: '/video/rs.mp4', crossOrigin: 'Anonymous', loop: true, muted: true }))
+    const [video] = useState(() => Object.assign(document.createElement('video'), { src: '/video/rs.mp4', playsInline: true, crossOrigin: 'Anonymous', loop: true, muted: true }))
     useEffect(() => {
         video.play()
-        video.crossOrigin = "anonymous";
-        video.loop = true;
-        video.muted = false;
         video.playsInline = true;
         video.setAttribute("webkit-playsinline", "webkit-playsinline");
         video.setAttribute("playsinline", "");
