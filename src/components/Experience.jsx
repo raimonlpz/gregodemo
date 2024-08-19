@@ -18,6 +18,11 @@ export const Experience = () => {
   const controlsRef = useRef()
   const scene = useThree(state => state.scene)
 
+  const titleRef = useRef()
+  const titleRef2 = useRef()
+  const videoRef = useRef()
+  const epRef = useRef()
+
   useEffect(() => {
     if (active) {
       const targetPosition = new THREE.Vector3()
@@ -44,6 +49,35 @@ export const Experience = () => {
     }
   }, [active])
 
+
+  useFrame((_state, delta) => {
+    if (titleRef.current && titleRef2.current) {
+      easing.damp3(
+        titleRef.current.position,
+        clicked ? [-1.55, 100, 0] : [-1.55, -0.1, 0],
+        .75,
+        delta
+      )
+      easing.damp3(
+        titleRef2.current.position,
+        clicked ? [1.55, 100, 0] : [1.55, 0, 0],
+        .75,
+        delta
+      )
+    }
+
+    console.log(videoRef.current)
+    if (videoRef.current) {
+      easing.damp3(
+        videoRef.current.position,
+        clicked ? [0, -100, -5] : [0, -3, -5],
+        .75,
+        delta
+      )
+    }
+
+  })
+
   return (
     <>
       <ambientLight intensity={1} />
@@ -63,7 +97,7 @@ export const Experience = () => {
         <Staff scale={0.06} hovered={hovered === 'Aquarum'} />
       </PortalStage> */}
 
-      <PortalStage  initialPosition={[0, 0, -800]}
+      <PortalStage  initialPosition={[0, 0, -900]}
         clicked={clicked} texture={'textures/refloruit.jpg'} title={'Refloruit'} color={'white'} position={[0, 0, -2]} rotation={[0, 0, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}> 
         <Nebula scale={0.6} hovered={hovered === 'Refloruit'} />
       </PortalStage>
@@ -89,25 +123,38 @@ export const Experience = () => {
       </PortalStage>
 
 
-        {!clicked && (
-          <>
-            <Text font={'fonts/Cardinal.ttf'} fontSize={1.15} position={[-1.55, -0.1, 0]} anchorY={'bottom'} >
-              Grego
-              <meshBasicMaterial color={'white'} toneMapped={false}  />
-            </Text>
-            <Text font={'fonts/Aron-SemiBold.ttf'} fontSize={1} position={[1.55, 0, 0]} anchorY={'bottom'} >
-              techno
-              <meshBasicMaterial color={'white'} toneMapped={false}  />
-            </Text>
+      <>
+              <Text ref={titleRef} font={'fonts/Cardinal.ttf'} fontSize={1.15} position={[-1.55, -0.1, 0]} anchorY={'bottom'} >
+                Grego
+                <meshBasicMaterial color={'white'} toneMapped={false}  />
+              </Text>
+              <Text ref={titleRef2} font={'fonts/Aron-SemiBold.ttf'} fontSize={1} position={[1.55, 0, 0]} anchorY={'bottom'} >
+                techno
+                <meshBasicMaterial color={'white'} toneMapped={false}  />
+              </Text>
+      </>
 
-            <Text font={'fonts/Cinzel.ttf'} fontSize={0.25} position={[0, -.5, 0]} anchorY={'bottom'} onClick={() => setClicked(true)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
+        {!clicked && (
+            <Text ref={epRef} font={'fonts/Cinzel.ttf'} fontSize={0.25} position={[0, -.5, 0]} anchorY={'bottom'} onClick={() => setClicked(true)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
               ENTER EP
               <meshBasicMaterial color={'white'} toneMapped={false} />
             </Text>
+        )}
 
-            <Screen />
+        {clicked && (
+          <>
+          <Text ref={epRef} font={'fonts/Cinzel.ttf'} fontSize={0.15} position={[-4, 0, 0]} anchorY={'bottom'} onClick={() => setClicked(false)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
+              Film
+              <meshBasicMaterial color={'white'} toneMapped={false} />
+            </Text>
+            <Text ref={epRef} font={'fonts/Cinzel.ttf'} fontSize={0.15} position={[4, 0, 0]} anchorY={'bottom'} onClick={() => setClicked(false)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
+              Home
+              <meshBasicMaterial color={'white'} toneMapped={false} />
+            </Text>
           </>
         )}
+
+        <Screen ref={videoRef} clicked={clicked} />
     </>
   );
 };
