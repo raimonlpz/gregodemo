@@ -23,14 +23,14 @@ function Screen() {
     const [video] = useState(() => Object.assign(document.createElement('video'), { src: '/video/rs.mp4', crossOrigin: 'Anonymous', loop: true, muted: true }))
     useEffect(() => void video.play(), [video])
     return (
-      <mesh ref={forwardRef} position={[0, -3, -5]} rotation={[-Math.PI / 2, 0, 0]} {...props}>
+      <mesh ref={forwardRef} position={[0, -3, -5]} rotation={[-Math.PI / 2.5, 0, 0]} {...props}>
         <planeGeometry args={[16, 10]} />
         <meshBasicMaterial transparent opacity={0.8}>
           <videoTexture attach="map" args={[video]} colorSpace={THREE.SRGBColorSpace} />
         </meshBasicMaterial>
         <mesh scale={[16.05, 10.05, 1]} position={[0, 0, -0.01]}>
           <planeGeometry />
-          <meshBasicMaterial color="black" transparent opacity={0.8} />
+          <meshBasicMaterial color="black"  />
         </mesh>
       </mesh>
     )

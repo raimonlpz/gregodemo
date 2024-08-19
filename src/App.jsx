@@ -32,7 +32,6 @@ function App() {
             roughness={1}
           />
       </mesh> */}
-      <Particles count={1000} />
       <Environment preset="dawn" />
 
         {/* <Sky /> */}
@@ -43,6 +42,9 @@ function App() {
           {/* <Cloud color={'#d7cee1'} position={[2, -2, -5]} speed={0.2} opacity={0.15} /> */}
           <Cloud color={'#e1ced9'} position={[4, 2, 0]} speed={0.2} opacity={0.15} />
         </Suspense>
+
+
+        <Particles count={1000} />
     </Canvas>
 
 

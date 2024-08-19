@@ -91,12 +91,16 @@ export const Experience = () => {
 
         {!clicked && (
           <>
-            <Text font={'fonts/Cinzel.ttf'} fontSize={0.95} position={[0, 0, 0]} anchorY={'bottom'} >
-              Gregotechno
+            <Text font={'fonts/DxSitrus-Expanded.otf'} fontSize={0.95} position={[-1.65, 0, 0]} anchorY={'bottom'} >
+              Grego
+              <meshBasicMaterial color={'white'} toneMapped={false}  />
+            </Text>
+            <Text font={'fonts/DxSitrus-ExpandedItalic.otf'} fontSize={0.95} position={[1.65, 0, 0]} anchorY={'bottom'} >
+              techno
               <meshBasicMaterial color={'white'} toneMapped={false}  />
             </Text>
 
-            <Text font={'fonts/Cinzel.ttf'} fontSize={0.25} position={[0, -1, 0]} anchorY={'bottom'} onClick={() => setClicked(true)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
+            <Text font={'fonts/Cinzel.ttf'} fontSize={0.25} position={[0, -.5, 0]} anchorY={'bottom'} onClick={() => setClicked(true)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
               ENTER EP
               <meshBasicMaterial color={'white'} toneMapped={false} />
             </Text>
