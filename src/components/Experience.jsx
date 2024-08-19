@@ -6,6 +6,7 @@ import { Orbit } from "./Orbit";
 import { useEffect, useRef, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { easing } from "maath";
+import Particles from "./Particles";
 
 export const Experience = () => {
 
@@ -49,7 +50,7 @@ export const Experience = () => {
       {/* <OrbitControls /> */}
       <CameraControls ref={controlsRef} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 6} />
 
-      <PortalStage texture={'textures/refloruit.jpg'} title={'Refloruit'} color="white" active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>
+      {/* <PortalStage texture={'textures/refloruit.jpg'} title={'Refloruit'} color="white" active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>
         <Orbit scale={0.55} hovered={hovered === 'Refloruit'} />
       </PortalStage>
 
@@ -59,8 +60,27 @@ export const Experience = () => {
 
       <PortalStage texture={'textures/aquarum.jpg'} position-x={2.5} rotation-y={-Math.PI / 8} title={'Aquarum'} color="white"  active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>
         <Staff scale={0.06} hovered={hovered === 'Aquarum'} />
+      </PortalStage> */}
+
+      <PortalStage texture={'textures/refloruit.jpg'} title={'Refloruit'} color={'white'} position={[0, 0, -2]} rotation={[0, 0, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}> 
+        <Nebula scale={0.6} hovered={hovered === 'Nebulae'} />
       </PortalStage>
 
+      <PortalStage texture={'textures/aquarum.jpg'} title={'Aquarum'} color={'white'} position={[2, 0, 0]} rotation={[0, -Math.PI / 2, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>
+        <Staff scale={0.06} hovered={hovered === 'Aquarum'} />
+      </PortalStage>
+
+      <PortalStage texture={'textures/spiritum.jpg'} title={'Spiritum'} color={'white'} position={[-2, 0, 0]} rotation={[0, Math.PI / 2, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>
+        <Orbit scale={0.5} hovered={hovered === 'Orbit'} />
+      </PortalStage>
+
+      <PortalStage texture={'textures/refloruit.jpg'} title={'Sapientam'} color={'white'} position={[0, 2, 0]} rotation={[-Math.PI / 2, 0, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>
+        <Nebula scale={0.6} hovered={hovered === 'Nebulae2'} />
+      </PortalStage>
+
+      <PortalStage texture={'textures/aquarum.jpg'} title={'Templum'} color={'white'} position={[0, -2, 0]} rotation={[-Math.PI / 2, 0, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>
+        <Staff scale={0.06} hovered={hovered === 'Aquarum2'} />
+      </PortalStage>
     </>
   );
 };
@@ -84,19 +104,19 @@ const PortalStage = ({ children, texture, title, color, active, setActive, hover
       </Text>
       <RoundedBox 
         name={title} 
-        args={[2,3,0.1]} 
+        args={[2,2,0.1]} 
         onDoubleClick={() => setActive(active === title ? null : title)}
         onPointerEnter={() => setHovered(title)}
         onPointerLeave={() => setHovered(null)}
       >
         {/* <planeGeometry args={[2, 3]} /> */}
-        <MeshPortalMaterial ref={portalMaterial} side={THREE.DoubleSide} > 
+        <MeshPortalMaterial  ref={portalMaterial} side={THREE.DoubleSide} > 
           <ambientLight intensity={1} />
           <Environment preset="sunset" />
           {children}
           <mesh>
             <sphereGeometry args={[5, 64,  64]} />
-            <meshStandardMaterial map={map} side={THREE.BackSide} />
+            <meshStandardMaterial map={map} side={THREE.BackSide}  />
           </mesh>
         </MeshPortalMaterial>
       </RoundedBox>
