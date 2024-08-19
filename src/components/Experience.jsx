@@ -81,7 +81,19 @@ export const Experience = () => {
       <ambientLight intensity={1} />
       <Environment preset="sunset" />
       {/* <OrbitControls /> */}
-      <CameraControls ref={controlsRef} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 6} />
+      <CameraControls 
+        ref={controlsRef} 
+        maxPolarAngle={Math.PI / 2} 
+        minPolarAngle={Math.PI / 6} 
+        maxDistance={15}
+        minDistance={5}
+        maxAzimuthAngle={Math.PI / 5}
+        minAzimuthAngle={-Math.PI / 5}
+        enablePan={true}
+        panSpeed={0.5}
+        rotateSpeed={0.5}
+        zoomSpeed={0.5}
+      />
 
       {/* <PortalStage texture={'textures/refloruit.jpg'} title={'Refloruit'} color="white" active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>
         <Orbit scale={0.55} hovered={hovered === 'Refloruit'} />
