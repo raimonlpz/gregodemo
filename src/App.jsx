@@ -5,11 +5,12 @@ import Particles from "./components/Particles";
 import { Cloud } from "@react-three/drei";
 import { Suspense } from "react";
 import AudioViz from "./components/AudioViz";
-
+import AnimatedCursor from "react-animated-cursor"
 
 function App() {
   return (
   <>
+    <AnimatedCursor />
     <Canvas shadows camera={{ position: [0, 20, 10], fov: 30 }}>
       {/* <color attach="background" args={["#ececec"]} /> */}
       <fog attach="fog" args={['#17171b', 0, 60]} />

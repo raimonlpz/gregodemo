@@ -66,7 +66,6 @@ export const Experience = () => {
       )
     }
 
-    console.log(videoRef.current)
     if (videoRef.current) {
       easing.damp3(
         videoRef.current.position,
@@ -75,7 +74,6 @@ export const Experience = () => {
         delta
       )
     }
-
   })
 
   return (

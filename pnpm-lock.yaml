@@ -26,6 +26,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.3.1
+      react-animated-cursor:
+        specifier: ^2.11.2
+        version: 2.11.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-audio-visualizers:
         specifier: ^0.1.1
         version: 0.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -764,6 +767,12 @@ packages:
 
   prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
+
+  react-animated-cursor@2.11.2:
+    resolution: {integrity: sha512-LV0PtST61tdeW/chCqFt1JLp6i0d5fD9v2uradBcPAkKKCi2Iw7sAcD11ADS1TjXPPj9MOoD9YubEt++/IbZ+g==}
+    peerDependencies:
+      react: ^18.2.0
+      react-dom: ^18.2.0
 
   react-audio-visualizers-core@0.1.4:
     resolution: {integrity: sha512-bO3sMY8QHhCZ2TjxguVgQJZiBOsbC/hL8eu+9a2WtjOySIO1qg7A2ZpOZrUvlEtN5D2yeIZScpilciJM6CjR9Q==}
@@ -1767,6 +1776,11 @@ snapshots:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       react-is: 16.13.1
+
+  react-animated-cursor@2.11.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   react-audio-visualizers-core@0.1.4(@react-three/fiber@7.0.29(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.129.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.129.0):
     dependencies:
