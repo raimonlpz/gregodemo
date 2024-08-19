@@ -21,7 +21,16 @@ function Screen() {
 
   const Emitter = forwardRef((props, forwardRef) => {
     const [video] = useState(() => Object.assign(document.createElement('video'), { src: '/video/rs.mp4', crossOrigin: 'Anonymous', loop: true, muted: true }))
-    useEffect(() => void video.play(), [video])
+    useEffect(() => {
+        video.play()
+        video.crossOrigin = "anonymous";
+        video.loop = true;
+        video.muted = false;
+        video.playsInline = true;
+        video.setAttribute("webkit-playsinline", "webkit-playsinline");
+        video.setAttribute("playsinline", "");
+        video.setAttribute("playsinline", true);
+    }, [video])
     return (
       <mesh ref={forwardRef} position={[0, -3, -5]} rotation={[-Math.PI / 2.5, 0, 0]} {...props}>
         <planeGeometry args={[16, 10]} />
