@@ -22,7 +22,7 @@ body {
   padding: 0;
   pointer-events: none;
   filter: invert(100%);
-  opacity: 0.25;
+  opacity: 0.075;
 }
 
 .frame img {
@@ -32,9 +32,9 @@ body {
 
 .nav {
   position: absolute;
-  top: 2rem;
-  left: 2rem;
-  right: 2rem;
+  top: 1rem;
+  left: 1.5rem;
+  right: 1.5rem;
   height: min-content;
   z-index: 100;
   font-size: 1.2rem;

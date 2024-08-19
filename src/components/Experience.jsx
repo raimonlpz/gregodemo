@@ -90,12 +90,12 @@ export const Experience = () => {
 
         {!clicked && (
           <>
-            <Text font={'fonts/Cinzel.ttf'} fontSize={0.95} position={[0, 0, 0]} anchorY={'bottom'} onClick={() => setClicked(true)}>
+            <Text font={'fonts/Cinzel.ttf'} fontSize={0.95} position={[0, 0, 0]} anchorY={'bottom'} >
               Gregotechno
-              <meshBasicMaterial color={'white'} toneMapped={false} />
+              <meshBasicMaterial color={'white'} toneMapped={false}  />
             </Text>
 
-            <Text font={'fonts/Cinzel.ttf'} fontSize={0.25} position={[0, -1, 0]} anchorY={'bottom'} onClick={() => setClicked(true)}>
+            <Text font={'fonts/Cinzel.ttf'} fontSize={0.25} position={[0, -1, 0]} anchorY={'bottom'} onClick={() => setClicked(true)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
               ENTER EP
               <meshBasicMaterial color={'white'} toneMapped={false} />
             </Text>

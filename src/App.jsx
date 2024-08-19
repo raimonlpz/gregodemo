@@ -54,10 +54,10 @@ function App() {
     <div className="audio-viz">
       <AudioViz />
     </div>
-{/* 
+
     <div className="frame">
       <img src="imgs/frame2.png" alt="Frame" />
-    </div> */}
+    </div>
   </>
   );
 }
