@@ -22,7 +22,7 @@ body {
   padding: 0;
   pointer-events: none;
   filter: invert(100%);
-  opacity: 0.075;
+  opacity: 0.055;
 }
 
 .frame img {

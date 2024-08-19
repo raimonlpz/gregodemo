@@ -32,7 +32,7 @@ function App() {
             roughness={1}
           />
       </mesh> */}
-      <Particles count={2000} />
+      <Particles count={1000} />
       <Environment preset="dawn" />
 
         {/* <Sky /> */}

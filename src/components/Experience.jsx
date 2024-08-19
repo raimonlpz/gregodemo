@@ -6,6 +6,7 @@ import { Orbit } from "./Orbit";
 import { useEffect, useRef, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { easing } from "maath";
+import Screen from "./Screen";
 
 export const Experience = () => {
 
@@ -99,6 +100,8 @@ export const Experience = () => {
               ENTER EP
               <meshBasicMaterial color={'white'} toneMapped={false} />
             </Text>
+
+            <Screen />
           </>
         )}
     </>
