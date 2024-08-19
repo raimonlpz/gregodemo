@@ -1,4 +1,4 @@
-import { CameraControls, Environment, MeshPortalMaterial, OrbitControls, RoundedBox, Text, useCursor, useTexture } from "@react-three/drei";
+import { Environment, MeshPortalMaterial, RoundedBox, Text, useCursor, useTexture, CameraControls } from "@react-three/drei";
 import * as THREE from 'three'
 import { Nebula } from "./Nebula";
 import { Staff } from "./Staff";
@@ -76,23 +76,31 @@ export const Experience = () => {
     }
   })
 
+
+
   return (
     <>
       <ambientLight intensity={1} />
       <Environment preset="sunset" />
-      {/* <OrbitControls /> */}
       <CameraControls 
         ref={controlsRef} 
         maxPolarAngle={Math.PI / 2} 
         minPolarAngle={Math.PI / 6} 
         maxDistance={15}
-        minDistance={5}
-        maxAzimuthAngle={Math.PI / 5}
-        minAzimuthAngle={-Math.PI / 5}
-        enablePan={true}
-        panSpeed={0.5}
+        minDistance={7}
+        maxAzimuthAngle={Math.PI / 7}
+        minAzimuthAngle={-Math.PI / 7}
+        enableDamping={true}
+        panSpeed={0}
+        enablePan={false}
         rotateSpeed={0.5}
         zoomSpeed={0.5}
+        dampingFactor={1}
+        // mouseButtons={{
+        //   left: 1, // Disable panning with left mouse button
+        //   middle: 1, // Disable panning with middle mouse button
+        //   right: 1, // Disable panning with right mouse button
+        // }}
       />
 
       {/* <PortalStage texture={'textures/refloruit.jpg'} title={'Refloruit'} color="white" active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>

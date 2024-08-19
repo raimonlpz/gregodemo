@@ -10,7 +10,7 @@ import AnimatedCursor from "react-animated-cursor"
 function App() {
   return (
   <>
-    <AnimatedCursor />
+    <AnimatedCursor  color='173,216,230' />
     <Canvas shadows camera={{ position: [0, 20, 10], fov: 30 }}>
       {/* <color attach="background" args={["#ececec"]} /> */}
       <fog attach="fog" args={['#17171b', 0, 60]} />
@@ -44,10 +44,8 @@ function App() {
           <Cloud color={'#e1ced9'} position={[4, 2, 0]} speed={0.2} opacity={0.15} />
         </Suspense>
 
-
-        <Particles count={1000} />
+        <Particles count={2000} />
     </Canvas>
-
 
     <div className="nav">
       <div className="nav-shop">shop</div>
@@ -60,7 +58,7 @@ function App() {
 
     <div className="frame">
       <img src="imgs/frame2.png" alt="Frame" />
-    </div>
+    </div> 
   </>
   );
 }

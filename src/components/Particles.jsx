@@ -7,7 +7,7 @@ import vertexShader from '../shaders/vertexShader.glsl?raw'
 
 const Particles = (props) => {
   const { count } = props;
-  const radius = 2;
+  const radius = 4;
 
   // This reference gives us direct access to our points
   const points = useRef();
@@ -48,7 +48,7 @@ const Particles = (props) => {
 
   return (
     <points ref={points}>
-      <bufferGeometry>
+     <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
           count={particlesPosition.length / 3}
@@ -57,7 +57,7 @@ const Particles = (props) => {
         />
       </bufferGeometry>
       <shaderMaterial
-      opacity={0.3}
+        // opacity={0.3}
         blending={THREE.AdditiveBlending}
         depthWrite={false}
         fragmentShader={fragmentShader}
