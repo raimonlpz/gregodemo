@@ -91,11 +91,11 @@ export const Experience = () => {
 
         {!clicked && (
           <>
-            <Text font={'fonts/Cardinal.ttf'} fontSize={0.95} position={[-1.25, 0, 0]} anchorY={'bottom'} >
+            <Text font={'fonts/Cardinal.ttf'} fontSize={1.15} position={[-1.55, -0.1, 0]} anchorY={'bottom'} >
               Grego
               <meshBasicMaterial color={'white'} toneMapped={false}  />
             </Text>
-            <Text font={'fonts/DxSitrus-ExpandedItalic.otf'} fontSize={1} position={[1.25, 0, 0]} anchorY={'bottom'} >
+            <Text font={'fonts/Aron-SemiBold.ttf'} fontSize={1} position={[1.55, 0, 0]} anchorY={'bottom'} >
               techno
               <meshBasicMaterial color={'white'} toneMapped={false}  />
             </Text>
