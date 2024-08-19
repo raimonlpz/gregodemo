@@ -1,9 +1,10 @@
 import { Canvas } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
-import { Environment, MeshReflectorMaterial } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import Particles from "./components/Particles";
-import { Cloud, Sky } from "@react-three/drei";
+import { Cloud } from "@react-three/drei";
 import { Suspense } from "react";
+import AudioViz from "./components/AudioViz";
 
 
 function App() {
@@ -48,6 +49,10 @@ function App() {
     <div className="nav">
       <div className="nav-shop">shop</div>
       <div className="nav-agenda">agenda</div>
+    </div>
+
+    <div className="audio-viz">
+      <AudioViz />
     </div>
 {/* 
     <div className="frame">
