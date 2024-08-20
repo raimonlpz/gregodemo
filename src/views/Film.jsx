@@ -2,7 +2,6 @@ import React from 'react'
 import { TweenMax, TimelineMax, Power3, Power4 } from "gsap";
 import { useRef, useEffect } from "react";
 import { NavLink } from 'react-router-dom';
-import ReactPlayer from 'react-player';
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
 import { Cloud } from '@react-three/drei';
@@ -57,8 +56,10 @@ function Film() {
               <Cloud color={'#e1ced9'} position={[3, 0, 0]} speed={0.2} opacity={0.15} />
             </Suspense>
             </Canvas>
-            <div className="player-wrapper">
-              <ReactPlayer width={'100%'} height={'100%'}  url='https://www.youtube.com/embed/QNu5vlsJ4Jg?si=9_uwMqmY1Dh7QLTl' />
+            <div className="player-wrapper"> 
+                <iframe width="100%" height="100%" style={{'border': 'none'}}
+                  src="https://www.youtube.com/embed/QNu5vlsJ4Jg?si=9_uwMqmY1Dh7QLTl&autoplay=1">
+                </iframe> 
             </div>
             <NavLink to="/" className="button nav arrow">&#8592;</NavLink>
         </div>
