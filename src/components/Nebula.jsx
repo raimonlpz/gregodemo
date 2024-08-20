@@ -18,7 +18,12 @@ export function Nebula({ hovered, ...props }) {
   useEffect(() => {
     actions['MorphBake'].reset().fadeIn(0.5).play()
     actions['MorphBake'].timeScale = hovered ? 10 : 1
-    return () => actions['MorphBake'].reset().fadeOut(0.5)
+    return () => {
+      // Cleanup function
+      if (actions['MorphBake']) {
+        actions['MorphBake'].reset().fadeOut(0.5)
+      }
+    }
   }, [hovered])
 
   return (

@@ -1,4 +1,4 @@
-import { Environment, MeshPortalMaterial, RoundedBox, Text, useCursor, useTexture, CameraControls, Float } from "@react-three/drei";
+import { Environment, MeshPortalMaterial, RoundedBox, Text, useCursor, useTexture, CameraControls } from "@react-three/drei";
 import * as THREE from 'three'
 import { Nebula } from "./Nebula";
 import { Staff } from "./Staff";
@@ -8,6 +8,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { easing } from "maath";
 import Screen from "./Screen";
 import Greek from "./Greek";
+import { useNavigate } from "react-router";
 
 export const Experience = () => {
 
@@ -23,6 +24,8 @@ export const Experience = () => {
   const titleRef2 = useRef()
   const videoRef = useRef()
   const greekRef = useRef()
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (active) {
@@ -172,7 +175,7 @@ export const Experience = () => {
 
         {clicked && (
           <>
-          <Text font={'fonts/Cinzel.ttf'} fontSize={0.15} position={[-4, 0, 0]} anchorY={'bottom'} onClick={() => setClicked(false)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
+          <Text font={'fonts/Cinzel.ttf'} fontSize={0.15} position={[-4, 0, 0]} anchorY={'bottom'} onClick={() => navigate('/film')} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
               Film
               <meshBasicMaterial color={'white'} toneMapped={false} />
             </Text>

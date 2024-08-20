@@ -18,7 +18,11 @@ export function Staff({ hovered, ...props}) {
   useEffect(() => {
     actions['Animation'].reset().fadeIn(0.5).play();
     actions['Animation'].timeScale = hovered ? 3 : 1
-    return () => actions['Animation'].reset().fadeOut(0.5)
+    return () => {
+      if (actions['Animation']) {
+        actions['Animation'].reset().fadeOut(0.5)
+      }
+    }
   }, [hovered])
 
 

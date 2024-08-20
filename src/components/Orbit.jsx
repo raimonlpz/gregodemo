@@ -19,7 +19,9 @@ export function Orbit({ hovered, ...props }) {
     actions['RootAction'].reset().fadeIn(0.5).play();
     actions['RootAction'].timeScale = hovered ? 4 : 1
     return () => {
-      actions['RootAction'].reset().fadeOut(0.5)
+      if (actions['RootAction']) {
+        actions['RootAction'].reset().fadeOut(0.5)
+      }
     }
   }, [hovered])
 
