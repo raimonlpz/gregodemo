@@ -1,4 +1,4 @@
-import { Environment, MeshPortalMaterial, RoundedBox, Text, useCursor, useTexture, CameraControls } from "@react-three/drei";
+import { Environment, MeshPortalMaterial, RoundedBox, Text, useCursor, useTexture, CameraControls, Float } from "@react-three/drei";
 import * as THREE from 'three'
 import { Nebula } from "./Nebula";
 import { Staff } from "./Staff";
@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { easing } from "maath";
 import Screen from "./Screen";
+import { Greek } from "./Greek";
 
 export const Experience = () => {
 
@@ -153,7 +154,7 @@ export const Experience = () => {
       </>
 
         {!clicked && (
-            <Text ref={epRef} font={'fonts/Cinzel.ttf'} fontSize={0.25} position={[0, -.5, 0]} anchorY={'bottom'} onClick={() => setClicked(true)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
+              <Text ref={epRef} font={'fonts/Cinzel.ttf'} fontSize={0.25} position={[0, -.5, 0]} anchorY={'bottom'} onClick={() => setClicked(true)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
               ENTER EP
               <meshBasicMaterial color={'white'} toneMapped={false} />
             </Text>
@@ -172,6 +173,8 @@ export const Experience = () => {
           </>
         )}
 
+        <Greek position={[-1, -3.3, -5]} scale={[4,4,4]} rotation={[0, -Math.PI / 2.5, 0]} />
+        {/* <GreekV2 position={[0, -3, -5]} scale={[1,1,1]} /> */}
         <Screen ref={videoRef} clicked={clicked} />
     </>
   );
