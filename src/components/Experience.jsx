@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { easing } from "maath";
 import Screen from "./Screen";
-import { Greek } from "./Greek";
+import Greek from "./Greek";
 
 export const Experience = () => {
 
@@ -22,7 +22,7 @@ export const Experience = () => {
   const titleRef = useRef()
   const titleRef2 = useRef()
   const videoRef = useRef()
-  const epRef = useRef()
+  const greekRef = useRef()
 
   useEffect(() => {
     if (active) {
@@ -52,6 +52,16 @@ export const Experience = () => {
 
 
   useFrame((_state, delta) => {
+
+    if (greekRef.current) {
+      easing.damp3(
+        greekRef.current.rotation,
+        clicked ? [-Math.PI * 2, -Math.PI / 2.5, 0] : [0, -Math.PI / 2.5, 0],
+        .75,
+        delta
+      )
+    }
+
     if (titleRef.current && titleRef2.current) {
       easing.damp3(
         titleRef.current.position,
@@ -154,7 +164,7 @@ export const Experience = () => {
       </>
 
         {!clicked && (
-              <Text ref={epRef} font={'fonts/Cinzel.ttf'} fontSize={0.25} position={[0, -.5, 0]} anchorY={'bottom'} onClick={() => setClicked(true)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
+              <Text font={'fonts/Cinzel.ttf'} fontSize={0.25} position={[0, -.5, 0]} anchorY={'bottom'} onClick={() => setClicked(true)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
               ENTER EP
               <meshBasicMaterial color={'white'} toneMapped={false} />
             </Text>
@@ -162,18 +172,18 @@ export const Experience = () => {
 
         {clicked && (
           <>
-          <Text ref={epRef} font={'fonts/Cinzel.ttf'} fontSize={0.15} position={[-4, 0, 0]} anchorY={'bottom'} onClick={() => setClicked(false)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
+          <Text font={'fonts/Cinzel.ttf'} fontSize={0.15} position={[-4, 0, 0]} anchorY={'bottom'} onClick={() => setClicked(false)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
               Film
               <meshBasicMaterial color={'white'} toneMapped={false} />
             </Text>
-            <Text ref={epRef} font={'fonts/Cinzel.ttf'} fontSize={0.15} position={[4, 0, 0]} anchorY={'bottom'} onClick={() => setClicked(false)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
+            <Text font={'fonts/Cinzel.ttf'} fontSize={0.15} position={[4, 0, 0]} anchorY={'bottom'} onClick={() => setClicked(false)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
               Home
               <meshBasicMaterial color={'white'} toneMapped={false} />
             </Text>
           </>
         )}
 
-        <Greek position={[-1, -3.3, -5]} scale={[4,4,4]} rotation={[0, -Math.PI / 2.5, 0]} />
+        <Greek ref={greekRef} position={[-.85, -3.2, -5]} scale={[3.5,3.5,3.6]} rotation={[0, -Math.PI / 2.5, 0]} />
         {/* <GreekV2 position={[0, -3, -5]} scale={[1,1,1]} /> */}
         <Screen ref={videoRef} clicked={clicked} />
     </>

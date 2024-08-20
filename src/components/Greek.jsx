@@ -9,17 +9,21 @@ Title: Broken ancient greek column - debris
 
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
+import { forwardRef } from 'react'
 
-export function Greek(props) {
+const Greek = forwardRef((props, forwardRef) => {
   const { nodes, materials } = useGLTF('/models/Greek/scene.gltf')
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} ref={forwardRef}>
       <mesh geometry={nodes.Object_4.geometry} material={materials.Debris_Column_cell_BAKED} />
       <mesh geometry={nodes.Object_5.geometry} material={materials.Debris_Column_cell_BAKED} />
       <mesh geometry={nodes.Object_6.geometry} material={materials.Debris_Column_cell_BAKED} />
       <mesh geometry={nodes.Object_7.geometry} material={materials.Debris_Column_cell_BAKED} />
     </group>
   )
-}
+})
 
 useGLTF.preload('/models/Greek/scene.gltf')
+
+export default Greek
+
