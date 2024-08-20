@@ -58,7 +58,7 @@ function Film() {
             </Suspense>
             </Canvas>
             <div className="player-wrapper">
-              <ReactPlayer width={'100%'} height={'100%'} playing={true} url='https://www.youtube.com/watch?v=QNu5vlsJ4Jg' />
+              <ReactPlayer width={'100%'} height={'100%'}  url='https://www.youtube.com/watch?v=QNu5vlsJ4Jg' />
             </div>
             <NavLink to="/" className="button nav arrow">&#8592;</NavLink>
         </div>
