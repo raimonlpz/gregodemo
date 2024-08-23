@@ -1,4 +1,4 @@
-import { Environment, MeshPortalMaterial, RoundedBox, Text, useCursor, useTexture, CameraControls } from "@react-three/drei";
+import { Environment, MeshPortalMaterial, RoundedBox, Text, useCursor, useTexture, CameraControls, Html } from "@react-three/drei";
 import * as THREE from 'three'
 import { Nebula } from "./Nebula";
 import { Staff } from "./Staff";
@@ -9,6 +9,7 @@ import { easing } from "maath";
 import Screen from "./Screen";
 import Greek from "./Greek";
 import { useNavigate } from "react-router";
+import AudioViz from "./AudioViz"; // Import the AudioViz component
 
 export const Experience = () => {
 
@@ -90,8 +91,6 @@ export const Experience = () => {
     }
   })
 
-
-
   return (
     <>
       <ambientLight intensity={1} />
@@ -110,94 +109,78 @@ export const Experience = () => {
         rotateSpeed={0.5}
         zoomSpeed={0.5}
         dampingFactor={1}
-        // mouseButtons={{
-        //   left: 1, // Disable panning with left mouse button
-        //   middle: 1, // Disable panning with middle mouse button
-        //   right: 1, // Disable panning with right mouse button
-        // }}
       />
 
-      {/* <PortalStage texture={'textures/refloruit.jpg'} title={'Refloruit'} color="white" active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>
-        <Orbit scale={0.55} hovered={hovered === 'Refloruit'} />
-      </PortalStage>
-
-      <PortalStage texture={'textures/spiritum.jpg'} position-x={-2.5} rotation-y={Math.PI / 8} title={'Spiritum'} color="white"  active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>
-        <Nebula scale={0.55} hovered={hovered === 'Spiritum'} />
-      </PortalStage>
-
-      <PortalStage texture={'textures/aquarum.jpg'} position-x={2.5} rotation-y={-Math.PI / 8} title={'Aquarum'} color="white"  active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>
-        <Staff scale={0.06} hovered={hovered === 'Aquarum'} />
-      </PortalStage> */}
-
       <PortalStage  initialPosition={[0, 0, -900]}
-        clicked={clicked} texture={'textures/refloruit.jpg'} title={'Refloruit'} color={'white'} position={[0, 0, -2]} rotation={[0, 0, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}> 
+        clicked={clicked} texture={'textures/refloruit.jpg'} title={'Refloruit'} color={'white'} position={[0, 0, -2]} rotation={[0, 0, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered} topLeftText="Top Left Refloruit" bottomRightText="Bottom Right Refloruit"> 
         <Nebula scale={0.6} hovered={hovered === 'Refloruit'} />
       </PortalStage>
 
       <PortalStage  initialPosition={[20, 0, 0]}
-        clicked={clicked} texture={'textures/aquarum.jpg'} title={'Aquarum'} color={'white'} position={[2, 0, 0]} rotation={[0, -Math.PI / 2, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>
+        clicked={clicked} texture={'textures/aquarum.jpg'} title={'Aquarum'} color={'white'} position={[2, 0, 0]} rotation={[0, -Math.PI / 2, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered} topLeftText="Top Left Aquarum" bottomRightText="Bottom Right Aquarum">
         <Orbit scale={0.5} hovered={hovered === 'Aquarum'} />
       </PortalStage>
 
       <PortalStage  initialPosition={[-20, 0, 0]}
-        clicked={clicked} texture={'textures/spiritum.jpg'} title={'Spiritum'} color={'white'} position={[-2, 0, 0]} rotation={[0, Math.PI / 2, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>
+        clicked={clicked} texture={'textures/spiritum.jpg'} title={'Spiritum'} color={'white'} position={[-2, 0, 0]} rotation={[0, Math.PI / 2, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered} topLeftText="Top Left Spiritum" bottomRightText="Bottom Right Spiritum">
         <Orbit scale={0.5} hovered={hovered === 'Spiritum'} />
       </PortalStage>
 
       <PortalStage  initialPosition={[0, 20, 0]}
-        clicked={clicked} texture={'textures/sapientiaem.jpg'} title={'Sapientam'} color={'white'} position={[0, 2, 0]} rotation={[-Math.PI / 2, 0, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>
+        clicked={clicked} texture={'textures/sapientiaem.jpg'} title={'Sapientam'} color={'white'} position={[0, 2, 0]} rotation={[-Math.PI / 2, 0, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered} topLeftText="Top Left Sapientam" bottomRightText="Bottom Right Sapientam">
         <Nebula scale={0.6} hovered={hovered === 'Sapientam'} />
       </PortalStage>
 
       <PortalStage  initialPosition={[0, -20, 0]}
-        clicked={clicked} texture={'textures/templum.jpg'} title={'Templum'} color={'white'} position={[0, -2, 0]} rotation={[-Math.PI / 2, 0, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered}>
+        clicked={clicked} texture={'textures/templum.jpg'} title={'Templum'} color={'white'} position={[0, -2, 0]} rotation={[-Math.PI / 2, 0, 0]} active={active} setActive={setActive} hovered={hovered} setHovered={setHovered} topLeftText="Top Left Templum" bottomRightText="Bottom Right Templum">
         <Staff scale={0.06} hovered={hovered === 'Templum'} />
       </PortalStage>
 
-
       <>
-              <Text ref={titleRef} font={'fonts/Cardinal.ttf'} fontSize={1.15} position={[-1.55, -0.1, 0]} anchorY={'bottom'} >
-                Grego
-                <meshBasicMaterial color={'white'} toneMapped={false}  />
-              </Text>
-              <Text ref={titleRef2} font={'fonts/Aron-SemiBold.ttf'} fontSize={1} position={[1.55, 0, 0]} anchorY={'bottom'} >
-                techno
-                <meshBasicMaterial color={'white'} toneMapped={false}  />
-              </Text>
+        <Text ref={titleRef} font={'fonts/Cardinal.ttf'} fontSize={1.15} position={[-1.55, -0.1, 0]} anchorY={'bottom'} >
+          Grego
+          <meshBasicMaterial color={'white'} toneMapped={false}  />
+        </Text>
+        <Text ref={titleRef2} font={'fonts/Aron-SemiBold.ttf'} fontSize={1} position={[1.55, 0, 0]} anchorY={'bottom'} >
+          techno
+          <meshBasicMaterial color={'white'} toneMapped={false}  />
+        </Text>
       </>
 
-        {!clicked && (
-              <Text font={'fonts/Cinzel.ttf'} fontSize={0.25} position={[0, -.5, 0]} anchorY={'bottom'} onClick={() => setClicked(true)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
-              ENTER EP
-              <meshBasicMaterial color={'white'} toneMapped={false} />
-            </Text>
-        )}
+      {!clicked && (
+        <Text font={'fonts/Cinzel.ttf'} fontSize={0.25} position={[0, -.5, 0]} anchorY={'bottom'} onClick={() => setClicked(true)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
+          ENTER EP
+          <meshBasicMaterial color={'white'} toneMapped={false} />
+        </Text>
+      )}
 
-        {clicked && (
-          <>
+      {clicked && (
+        <>
           <Text font={'fonts/Cinzel.ttf'} fontSize={0.15} position={[-4, 0, 0]} anchorY={'bottom'} onClick={() => navigate('/film')} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
-              Film
-              <meshBasicMaterial color={'white'} toneMapped={false} />
-            </Text>
-            <Text font={'fonts/Cinzel.ttf'} fontSize={0.15} position={[4, 0, 0]} anchorY={'bottom'} onClick={() => setClicked(false)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
-              Home
-              <meshBasicMaterial color={'white'} toneMapped={false} />
-            </Text>
-          </>
-        )}
+            Film
+            <meshBasicMaterial color={'white'} toneMapped={false} />
+          </Text>
+          <Text font={'fonts/Cinzel.ttf'} fontSize={0.15} position={[4, 0, 0]} anchorY={'bottom'} onClick={() => setClicked(false)} onPointerEnter={() => setHovered('cta')} onPointerLeave={() => setHovered(null)}>
+            Home
+            <meshBasicMaterial color={'white'} toneMapped={false} />
+          </Text>
+        </>
+      )}
 
-        <Greek ref={greekRef} position={[-.85, -3.2, -5]} scale={[3.5,3.5,3.6]} rotation={[0, -Math.PI / 2.5, 0]} />
-        {/* <GreekV2 position={[0, -3, -5]} scale={[1,1,1]} /> */}
-        <Screen ref={videoRef} clicked={clicked} />
+      <Greek ref={greekRef} position={[-.85, -3.2, -5]} scale={[3.5,3.5,3.6]} rotation={[0, -Math.PI / 2.5, 0]} />
+      <Screen ref={videoRef} clicked={clicked} />
     </>
   );
 };
 
-
-const PortalStage = ({ initialPosition, clicked, children, texture, title, color, active, setActive, hovered, setHovered, ...props}) => {
+const PortalStage = ({ initialPosition, clicked, children, texture, title, color, active, setActive, hovered, setHovered, topLeftText, bottomRightText, ...props}) => {
   const map = useTexture(texture)
   const portalMaterial = useRef()
   const group = useRef()
+  const textRef = useRef()
+  const topLeftTextRef = useRef()
+  const bottomRightTextRef = useRef()
+  const { camera } = useThree()
 
   useFrame((_state, delta) => {
     const worldOpen = active === title 
@@ -209,12 +192,22 @@ const PortalStage = ({ initialPosition, clicked, children, texture, title, color
       0.4,
       delta
     )
-  })
 
+    // Make the text always face the camera
+    if (textRef.current) {
+      textRef.current.quaternion.copy(camera.quaternion)
+    }
+    if (topLeftTextRef.current) {
+      topLeftTextRef.current.quaternion.copy(camera.quaternion)
+    }
+    if (bottomRightTextRef.current) {
+      bottomRightTextRef.current.quaternion.copy(camera.quaternion)
+    }
+  })
 
   return (
     <group ref={group} {...props}>
-      <Text font={'fonts/Cinzel.ttf'} fontSize={0.15} position={[0, -1.3, 0.051]} anchorY={'bottom'}>
+      <Text ref={textRef} font={'fonts/Cinzel.ttf'} fontSize={0.15} position={[0, -1.3, 0.051]} anchorY={'bottom'}>
         {title}
         <meshBasicMaterial color={color} toneMapped={false} />
       </Text>
@@ -225,7 +218,6 @@ const PortalStage = ({ initialPosition, clicked, children, texture, title, color
         onPointerEnter={() => setHovered(title)}
         onPointerLeave={() => setHovered(null)}
       >
-        {/* <planeGeometry args={[2, 3]} /> */}
         <MeshPortalMaterial  ref={portalMaterial} side={THREE.DoubleSide} > 
           <ambientLight intensity={1} />
           <Environment preset="sunset" />
@@ -234,6 +226,22 @@ const PortalStage = ({ initialPosition, clicked, children, texture, title, color
             <sphereGeometry args={[5, 64,  64]} />
             <meshStandardMaterial map={map} side={THREE.BackSide}  />
           </mesh>
+          {active === title && (
+            <>
+              <Text ref={textRef} font={'fonts/Cardinal.ttf'} fontSize={0.5} position={[0, -2, -3]} anchorY={'middle'}>
+                {title}
+                <meshBasicMaterial color={'white'} toneMapped={false} />
+              </Text>
+              <Text ref={topLeftTextRef} font={'fonts/PirataOne-Regular.ttf'} fontSize={0.2} position={[-2.5, 1.5, -3]} anchorY={'middle'}>
+                {topLeftText}
+                <meshBasicMaterial color={'white'} toneMapped={false} />
+              </Text>
+              <Text ref={bottomRightTextRef} font={'fonts/PirataOne-Regular.ttf'} fontSize={0.2} position={[2.5, 0.5, -3]} anchorY={'middle'}>
+                {bottomRightText}
+                <meshBasicMaterial color={'white'} toneMapped={false} />
+              </Text>
+            </>
+          )}
         </MeshPortalMaterial>
       </RoundedBox>
     </group>
