@@ -1,0 +1,50 @@
+
+{
+    "events": [
+        {
+            "id": 1,
+            "title": "Lorem Ipsum Festival",
+            "date": "2024-09-15",
+            "location": "Dolor Sit Amet Arena",
+            "city": "Barcelona",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "tickets_url": "https://example.com/tickets/lorem-ipsum-festival"
+        },
+        {
+            "id": 2,
+            "title": "Lorem Ipsum Festival",
+            "date": "2024-09-15",
+            "location": "Dolor Sit Amet Arena",
+            "city": "Barcelona",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "tickets_url": "https://example.com/tickets/lorem-ipsum-festival"
+        },
+        {
+            "id": 3,
+            "title": "Lorem Ipsum Festival",
+            "date": "2024-09-15",
+            "location": "Dolor Sit Amet Arena",
+            "city": "Barcelona",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "tickets_url": "https://example.com/tickets/lorem-ipsum-festival"
+        },
+        {
+            "id": 4,
+            "title": "Lorem Ipsum Festival",
+            "date": "2024-09-15",
+            "location": "Dolor Sit Amet Arena",
+            "city": "Barcelona",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "tickets_url": "https://example.com/tickets/lorem-ipsum-festival"
+        },
+        {
+            "id": 5,
+            "title": "Lorem Ipsum Festival",
+            "date": "2024-09-15",
+            "location": "Dolor Sit Amet Arena",
+            "city": "Barcelona",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "tickets_url": "https://example.com/tickets/lorem-ipsum-festival"
+        }
+    ]
+}
